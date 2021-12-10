@@ -1,0 +1,17 @@
+{
+  "name": "who-are-you",
+  "version": "1.0.0",
+  "description": "node project for school practice",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vinie et Mathilde",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.15"
+  }
+}

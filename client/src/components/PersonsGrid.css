@@ -1,0 +1,17 @@
+.persons-grid {
+    height: 80vh;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap:20px;  
+}
+.person{
+    border:1px solid black;
+    height: 100%;
+    width: 100%;
+    background-color: blue;
+}
+
+.inactive {
+    background-color:red;
+}
