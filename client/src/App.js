@@ -4,11 +4,11 @@ import PersonsGrid from './components/PersonsGrid';
 import ChatBox from "./components/ChatBox";
 
 import { io } from "socket.io-client";
-let location =
-  process.env.NODE_ENV === "development"
-    ? "http://localhost:8000/"
-    : window.location;
-const socket = io.connect(location);
+// let location =
+//   process.env.NODE_ENV === "development"
+//     ? "http://localhost:8000/"
+//     : "";
+const socket = io.connect();
 
 function App() {
   const [room, setRoom] = useState("");
