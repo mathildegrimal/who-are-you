@@ -4,13 +4,18 @@ import PersonsGrid from './components/PersonsGrid';
 import ChatBox from "./components/ChatBox";
 
 import { io } from "socket.io-client";
-const socket = io.connect("http://localhost:8000");
+let location =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:8000/"
+    : window.location;
+const socket = io.connect(location);
 
 function App() {
   const [room, setRoom] = useState("");
   const [name, setName] = useState("");
   const [disabled, setDisabled] = useState(false);
-  socket.on(`config-${socket.id}`, (config)=>{ console.log(config)});
+  const [person, setPerson]= useState("");
+  socket.on(`config-${socket.id}`, (config)=>{ setPerson(config.person)});
   const handleSubmit = (e) => {
     e.preventDefault();
     socket.emit("join room", { room: room, name: name });
@@ -50,7 +55,7 @@ function App() {
         </button>
       </form>
       <div className="main">
-        <PersonsGrid />
+        <PersonsGrid person={person} />
         <ChatBox roomName={room} socket={socket} />
       </div>
     </div>
