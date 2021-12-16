@@ -3,11 +3,13 @@
 import './App.css';
 import React from 'react';
 import PersonsGrid from './components/PersonsGrid';
+import ChatBox from "./components/ChatBox";
 
 function App() {
   return (
-    <div>
+    <div className="App">
       <PersonsGrid />
+      <ChatBox/>
     </div>
   )
 }
