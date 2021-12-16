@@ -1,9 +1,16 @@
 /* eslint-disable no-console */
 const express = require('express');
 const path = require("path");
-
 const app = express();
 
+const cors = require("cors");
+app.use(
+  cors({
+    origin: ["http://localhost:3000"],
+  })
+);
+
+const { Server } = require("socket.io");
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "client/build")));
@@ -20,14 +27,27 @@ app.post("/questions", (req, res) => res.send(req.body));
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname + "/client/build/index.html"));
 });
+
+//route pour fetcher la config
+
 const port = 8000;
 const server = app.listen(process.env.PORT || port, () => { console.log(`app is running on port ${port}`); });
-const io = require('socket.io')(server);
+
+
+
+const io = new Server(server, {
+  cors: {
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST"],
+  },
+});
+
 io.on("connection", (socket) => {
-  console.log("User joined");
-  socket.emit("connection", "connected");
-  socket.on('confirm', () => { console.log('received confirm from user') })
-  socket.on("message", (message) => {
-    console.log(message)
+  socket.on("join room", (roomName) => {
+    socket.join(roomName);
   })
+  socket.on("message", ({ roomName, msg }) => {
+    console.log(roomName, msg);
+    io.to(roomName).emit("chat message", msg);
+  });
 });
