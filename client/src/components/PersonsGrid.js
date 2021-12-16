@@ -15,7 +15,7 @@ export default function PersonsGrid(props) {
          }
         
         const fetchPersons = async () => {
-            const persons = await fetch("http://localhost:8000/api/persons",
+            const persons = await fetch("/api/persons",
                 {
                     method: "GET",
                 });
