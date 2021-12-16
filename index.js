@@ -2,7 +2,7 @@
 const express = require('express');
 const path = require("path");
 const app = express();
-
+const { persons } = require('./config/persons');
 const cors = require("cors");
 app.use(
   cors({
@@ -33,7 +33,9 @@ app.get("/", (req, res) => {
 const port = 8000;
 const server = app.listen(process.env.PORT || port, () => { console.log(`app is running on port ${port}`); });
 
-
+const getRandomPerson = () => {
+  return persons[Math.floor(Math.random() * 20)].name;
+}
 
 const io = new Server(server, {
   cors: {
@@ -42,9 +44,15 @@ const io = new Server(server, {
   },
 });
 
+
+
+let game =[]
 io.on("connection", (socket) => {
-  socket.on("join room", (roomName) => {
-    socket.join(roomName);
+  socket.on("join room", ({ room, name }) => {
+    socket.join(room);
+    let config = { playerName: name, person: getRandomPerson() };
+    game.push(config);
+    socket.emit(`config-${socket.id}`, config);
   })
   socket.on("message", ({ roomName, msg }) => {
     console.log(roomName, msg);

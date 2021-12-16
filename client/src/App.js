@@ -8,26 +8,53 @@ const socket = io.connect("http://localhost:8000");
 
 function App() {
   const [room, setRoom] = useState("");
+  const [name, setName] = useState("");
+  const [disabled, setDisabled] = useState(false);
+  socket.on(`config-${socket.id}`, (config)=>{ console.log(config)});
   const handleSubmit = (e) => {
     e.preventDefault();
-    socket.emit("join room", room);
+    socket.emit("join room", { room: room, name: name });
+    setDisabled(true)
   }
 
-  const handleChange = (e) => {
+
+  const handleChangeRoom = (e) => {
     setRoom(e.target.value);
   }
+
+  const handleChangeName = (e) => {
+    setName(e.target.value);
+  };
 
   return (
     <div className="App">
       <form onSubmit={handleSubmit}>
-          <label htmlFor="room"></label>
-        <input type="text" name="room" onChange={handleChange}/>
-          <button type="submit">Rejoindre</button>
+        <label htmlFor="room">Salle</label>
+        <input
+          type="text"
+          name="room"
+          disabled={disabled}
+          required
+          onChange={handleChangeRoom}
+        />
+        <label htmlFor="room">Votre nom</label>
+        <input
+          type="text"
+          name="name"
+          disabled={disabled}
+          required
+          onChange={handleChangeName}
+        />
+        <button type="submit" disabled={disabled}>
+          Rejoindre
+        </button>
       </form>
-      <PersonsGrid />
-      <ChatBox roomName={room} socket={socket}/>
+      <div className="main">
+        <PersonsGrid />
+        <ChatBox roomName={room} socket={socket} />
+      </div>
     </div>
-  )
+  );
 }
 
 export default App

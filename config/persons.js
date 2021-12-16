@@ -80,4 +80,5 @@ const persons = [
     imageUrl: "",
   },
 ];
-export default persons;
+
+module.exports = { persons };
