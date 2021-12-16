@@ -17,12 +17,7 @@ app.use(express.static(path.join(__dirname, "client/build")));
 app.use(express.urlencoded({ extended: true }));
 
 // eslint-disable-next-line no-unused-vars
-app.get('/oui', (req, res, next) => res.send('oui'));
-// eslint-disable-next-line no-unused-vars
-app.get('/test', (req, res, next) => res.send('test'));
-// eslint-disable-next-line no-unused-vars
-app.get('/test2/:id', (req, res, next) => res.send(`test2${req.params.id}`));
-app.post("/questions", (req, res) => res.send(req.body));
+app.get('/api/persons', (req, res, next) => res.send(persons));
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname + "/client/build/index.html"));
@@ -51,8 +46,8 @@ io.on("connection", (socket) => {
   socket.on("join room", ({ room, name }) => {
     socket.join(room);
     let config = { playerName: name, person: getRandomPerson() };
-    game.push(config);
-    socket.emit(`config-${socket.id}`, config);
+    game.push({ playerName: name, person: getRandomPerson() });
+    socket.emit(`config-${socket.id}`, config)
   })
   socket.on("message", (data) => {
     io.to(data.roomName).emit("chat message", data);
