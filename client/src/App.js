@@ -51,7 +51,7 @@ function App() {
       </form>
       <div className="main">
         <PersonsGrid />
-        <ChatBox roomName={room} socket={socket} />
+        <ChatBox roomName={room} socket={socket} name={name}/>
       </div>
     </div>
   );

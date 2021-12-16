@@ -54,8 +54,7 @@ io.on("connection", (socket) => {
     game.push(config);
     socket.emit(`config-${socket.id}`, config);
   })
-  socket.on("message", ({ roomName, msg }) => {
-    console.log(roomName, msg);
-    io.to(roomName).emit("chat message", msg);
+  socket.on("message", (data) => {
+    io.to(data.roomName).emit("chat message", data);
   });
 });
