@@ -25,9 +25,9 @@ const server = app.listen(process.env.PORT || port, () => { console.log(`app is 
 const io = require('socket.io')(server);
 io.on("connection", (socket) => {
   console.log("User joined");
-  socket.emit('greet', 'Hi user');
-  socket.on('confirm', () => { console.log('Received user confirmation') });
-  socket.on("disconnect", () => {
-    console.log("User disconnected");
-  });
+  socket.emit("connection", "connected");
+  socket.on('confirm', () => { console.log('received confirm from user') })
+  socket.on("message", (message) => {
+    console.log(message)
+  })
 });
