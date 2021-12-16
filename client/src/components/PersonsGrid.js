@@ -3,6 +3,8 @@ import persons from './config/persons';
 import './PersonsGrid.css';
 import Person from './Person';
 import Button from './Button';
+
+//coté front : useEffect pour fetcher les personnages et leurs photos sur le back
 export default function PersonsGrid() {
     const [count, setCount] = useState(20);
     const [disabled, setDisabled] = useState(true);
