@@ -21,4 +21,13 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname + "/client/build/index.html"));
 });
 const port = 8000;
-app.listen(process.env.PORT || port, () => { console.log(`app is running on port ${port}`); });
+const server = app.listen(process.env.PORT || port, () => { console.log(`app is running on port ${port}`); });
+const io = require('socket.io')(server);
+io.on("connection", (socket) => {
+  console.log("User joined");
+  socket.emit('greet', 'Hi user');
+  socket.on('confirm', () => { console.log('Received user confirmation') });
+  socket.on("disconnect", () => {
+    console.log("User disconnected");
+  });
+});
