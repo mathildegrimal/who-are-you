@@ -2,11 +2,76 @@ import john from "../../images/john.jpeg";
 
 const persons = [
   {
-    name: "John",
+    name: "Dorian",
     imageUrl: john,
   },
   {
-    name: "John",
+    name: "Gina",
+   
+    imageUrl: john,
+  },
+  {
+    name: "Alice",
+   
+    imageUrl: john,
+  },
+  {
+    name: "Venise",
+   
+    imageUrl: john,
+  },
+  {
+    name: "Medhi",
+   
+    imageUrl: john,
+  },
+  {
+    name: "Guillaume",
+   
+    imageUrl: john,
+  },
+  {
+    name: "Lucas",
+   
+    imageUrl: john,
+  },
+  {
+    name: "Virginie",
+   
+    imageUrl: john,
+  },
+  {
+    name: "Lise",
+   
+    imageUrl: john,
+  },
+  {
+    name: "Camille",
+   
+    imageUrl: john,
+  },
+  {
+    name: "Julienne",
+   
+    imageUrl: john,
+  },
+  {
+    name: "Damien",
+   
+    imageUrl: john,
+  },
+  {
+    name: "Clément",
+   
+    imageUrl: john,
+  },
+  {
+    name: "Badis",
+   
+    imageUrl: john,
+  },
+  {
+    name: "Omar",
    
     imageUrl: john,
   },
@@ -16,87 +81,22 @@ const persons = [
     imageUrl: john,
   },
   {
-    name: "John",
+    name: "Luc",
    
     imageUrl: john,
   },
   {
-    name: "John",
+    name: "Tom",
    
     imageUrl: john,
   },
   {
-    name: "John",
+    name: "Auriane",
    
     imageUrl: john,
   },
   {
-    name: "John",
-   
-    imageUrl: john,
-  },
-  {
-    name: "John",
-   
-    imageUrl: john,
-  },
-  {
-    name: "John",
-   
-    imageUrl: john,
-  },
-  {
-    name: "John",
-   
-    imageUrl: john,
-  },
-  {
-    name: "John",
-   
-    imageUrl: john,
-  },
-  {
-    name: "John",
-   
-    imageUrl: john,
-  },
-  {
-    name: "John",
-   
-    imageUrl: john,
-  },
-  {
-    name: "John",
-   
-    imageUrl: john,
-  },
-  {
-    name: "John",
-   
-    imageUrl: john,
-  },
-  {
-    name: "John",
-   
-    imageUrl: john,
-  },
-  {
-    name: "John",
-   
-    imageUrl: john,
-  },
-  {
-    name: "John",
-   
-    imageUrl: john,
-  },
-  {
-    name: "John",
-   
-    imageUrl: john,
-  },
-  {
-    name: "John",
+    name: "Mathilde",
    
     imageUrl: john,
   },
