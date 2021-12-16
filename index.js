@@ -29,7 +29,7 @@ const port = 8000;
 const server = app.listen(process.env.PORT || port, () => { console.log(`app is running on port ${port}`); });
 
 const getRandomPerson = () => {
-  return persons[Math.floor(Math.random() * 20)].name;
+  return persons[Math.floor(Math.random() * 20)];
 }
 
 const io = new Server(server, {

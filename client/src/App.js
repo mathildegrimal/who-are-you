@@ -14,7 +14,7 @@ function App() {
   const [room, setRoom] = useState("");
   const [name, setName] = useState("");
   const [disabled, setDisabled] = useState(false);
-  const [person, setPerson]= useState("");
+  const [person, setPerson]= useState({});
   socket.on(`config-${socket.id}`, (config)=>{ setPerson(config.person)});
   const handleSubmit = (e) => {
     e.preventDefault();

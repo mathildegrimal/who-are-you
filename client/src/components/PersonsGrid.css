@@ -1,6 +1,11 @@
 .container{
     width: 80%;
 }
+
+.image-guess{
+    width:150px;
+    height:auto;
+}
 .persons-grid {
     height: 100vh;
     width: 100%;

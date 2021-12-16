@@ -27,7 +27,8 @@ export default function PersonsGrid(props) {
    
     return (
       <div>
-        <div>Personne à faire deviner : {props.person}</div>
+        <div>Personne à faire deviner : {props.person.name}</div>
+            <img className="image-guess" src={props.person.imageUrl} alt={props.person.name}/>
         <div className="persons-grid">
           {persons.map((person, index) => {
             return (
