@@ -1,20 +1,69 @@
 .chatbox{
-    background-color: rgb(189, 206, 115);
-    width:30%;
-    height:600px;
+    display:flex;
+    align-items:center;
+    flex-direction:column;
+    background-color: rgb(0, 0, 0);
+    
+    height:100vh;
     display: flex;
     flex-direction: column;
     padding: 5px;
+    border-radius: 10px;
+    padding:15px;
 }
 
+.button-chat{
+    display: flex;
+    align-self: flex-end;
+    color:white;
+    background-color:rgb(17, 144, 96);
+    padding:15px;
+    border-style: none;
+    border-radius: 10px;
+    width:fit-content;
+    margin-top: 5px;
+    font-size:0.8em;
+    cursor: pointer;
+}
+
+.button-chat:hover{ 
+    background-color:rgb(13, 102, 68);
+
+}
+.chatbox  > input{
+    border-style: none;
+    border-radius: 5px;
+    width: 95%;
+}
 .messages-container {
+    display: flex;
+    width:100%;
     background: white;
     margin: 5px;
-    background: white;
     height: 100%;
-    display: flex;
     flex-direction: column;
     align-items: flex-start;
+    overflow-y: scroll;
+    scrollbar-color: rgb(55, 148, 120) rgb(255, 255, 255);
+    scrollbar-width: thin;
+    border-radius: 10px;
+}
+
+
+.message-container{
+    width: fit-content;
+    max-width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+}
+
+.message-container.self{
+    align-self: flex-end;
+}
+.player-name{
+    font-size:0.8em;
 }
 
 .message {
@@ -22,7 +71,6 @@
     margin: 3px;
     border-radius: 20px;
     width: fit-content;
-    max-width: 60%;
     display: flex;
     align-items: center;
 }
@@ -30,6 +78,60 @@
     background-color: rgb(209, 209, 209);
 }
 .message.self {
-    background-color: rgb(189, 206, 115);
-    align-self: flex-end;
+    background-color: rgb(115, 206, 176);
+}
+.form-answer{
+    display: flex; 
+    width: 100%;
+
+    align-items: center;
+}
+select, option{
+    height: 30px;
+    width:fit-content;
+}
+
+.answer-button{
+    display:flex;
+    font-size:0.8em;
+    color:white;
+    background-color:rgb(17, 144, 96);
+    padding:15px;
+    border-style: none;
+    border-radius: 10px;
+    width:fit-content;
+    margin-top: 5px;
+    margin-left:5px;
+    cursor: pointer;
+}
+
+.answer-button:hover{
+    background-color:rgb(13, 102, 68);
+
+}
+
+.disabled{
+    background-color:rgb(134, 134, 134);
+}
+
+.result{
+    padding:5px;
+    border-radius:10px;
+    margin-top: 5px;
+    margin-bottom:5px;
+    width:fit-content;
+    color:white;
+    font-size:0.7em;
+    font-style: italic;
+}
+.gagné{
+    background-color:rgb(55, 148, 120);
+    font-style: normal;
+    font-size:1em;
+}
+
+.perdu{
+    background-color:rgb(175, 39, 39);
+    font-size:1em;
+    font-style: normal;
 }
